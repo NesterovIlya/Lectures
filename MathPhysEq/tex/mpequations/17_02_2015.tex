@@ -34,7 +34,7 @@ $$
 	Найдем решение данной задачи.
 	\begin{align*}
 		&k^2 + \lambda = 0; \\
-		&k = \pm i \sqrt{2}.
+		&k = \pm i \sqrt{\lambda}.
 	\end{align*}
 	Рассмотрим случай, когда $\lambda > 0$. Тогда общее решение будет иметь вид $y_{c}(x) = C_1 \cos{\sqrt{\lambda}\,x} + C_2 \sin{\sqrt{\lambda}\,x}$. Подставим граничные условия:
 	\begin{align*}
@@ -48,18 +48,19 @@ $$
 Пусть $\Omega = \set{x \in \fieldr }{a < x < b}$.
 Будем рассматривать пространство 
 $$
-	L_2(\Omega) = \set{f}{(L)\integral{\Omega}{\abs{f(x)}^2}{x} < \infty, \, x \in \Omega, \, f \colon \Omega \to \fieldr}.
+L_2(\Omega) = \set{f}{(L)\integral{\Omega}{}{\abs{f(x)}^2}{x} < \infty, \, x \in \Omega, \, f \colon \Omega \to \fieldr}.
 $$
 Скалярное произведение и норма вводятся в этом пространстве следующим образом
 \begin{align*}
-	&\scalar{u}{v} = \integral{\Omega}{u(x) \widebar{v(x)}}{x},\qquad \forall u,v \in L_2(\Omega), \\
-	&\norm{u}_{L_2} = \sqrt{\scalar{u}{u}} = \left( \integral{\Omega}{\abs{u(x)}^2}{x} \right)^{\frac{1}{2}}.
+    &\scalar{u}{v} = \integral{\Omega}{}{u(x) \widebar{v(x)}}{x},\qquad \forall u,v \in L_2(\Omega), \\
+    &\norm{u}_{L_2} = \sqrt{\scalar{u}{u}} = \left( \integral{\Omega}{}{\abs{u(x)}^2}{x} \right)^{\frac{1}{2}}.
 \end{align*}
 Положим $H \subseteq L_2(\Omega)$. Задан оператор $A \colon H \to H$. $A^*$ --- сопряженный к~$A$ в~$H$, т.е. $\scalar{Au}{v} = \scalar{u}{A^*v}$. Возьмем $A = \fulld{x}$ и проверим, является ли он самосопряженным. Будем предполагать, что функции $u$ и/или $v$ имеют конечный носитель в $\Omega$.
 \begin{equation*}
 	\begin{split}
-	\scalar{\fulld{x}u}{v} &= \integral{\Omega}{\fulld{x}u(x) v(x)}{x} = \underbrace{\substitute{u(x)v(x)}{a}{b}}_0 - \integral{a^b}{u(x) v'(x)}{x} = \\
-						   &= - \integral{a^b}{u(x) \fulld{x}v(x)}{x} = \scalar{u}{-\fulld{x}v}.
+        \scalar{\fulld{x}u}{v} &= \integral{\Omega}{}{\fulld{x}u(x) v(x)}{x} =
+        \underbrace{\substitute{u(x)v(x)}{a}{b}}_0 - \integral{a}{b}{u(x) v'(x)}{x} = \\
+        &= - \integral{a}{b}{u(x) \fulld{x}v(x)}{x} = \scalar{u}{-\fulld{x}v}.
 	\end{split}
 \end{equation*}
 Таким образом получаем, что $A^* = -\fulld{x} \ne A$.
@@ -74,9 +75,11 @@ $$
 Проверим, является ли он самосопряженным в $L_2(\Omega)$ (при условии, сказанном в замечании):
 \begin{equation*}
 	\begin{split}
-	\scalar{Lu}{v} &= \integral{\Omega}{\fulld{x}\left[ \phi(x)\fulld{x}u(x) \right] v(x)}{x} = \\
-	&= \underbrace{\substitute{v(x)\phi(x)\fulld{x}u(x)}{a}{b}}_0 - \integral{a^b}{\phi(x)\fulld{x}u(x) v'(x)}{x} = \\
-	&= - \underbrace{\substitute{u(x)\phi(x)\fulld{x}v(x)}{a}{b}}_0 + \integral{a^b}{u(x) \fulld{x}  \left[ \phi(x) \fulld{x}v(x) \right] }{x} = \scalar{u}{Lv}.
+        \scalar{Lu}{v} &= \integral{\Omega}{}{\fulld{x}\left[ \phi(x)\fulld{x}u(x) \right] v(x)}{x} = \\
+        &= \underbrace{\substitute{v(x)\phi(x)\fulld{x}u(x)}{a}{b}}_0 -
+        \integral{a}{b}{\phi(x)\fulld{x}u(x) v'(x)}{x} = \\
+	&= - \underbrace{\substitute{u(x)\phi(x)\fulld{x}v(x)}{a}{b}}_0 +
+    \integral{a}{b}{u(x) \fulld{x}  \left[ \phi(x) \fulld{x}v(x) \right] }{x} = \scalar{u}{Lv}.
 	\end{split}
 \end{equation*}
 Получаем, что $L$ --- самосопряженный оператор. В $L_2(\Omega)$ это общий вид самосопряженного оператора. Отвечающее ему уравнение записывается в виде
