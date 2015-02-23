@@ -1,0 +1,80 @@
+\section{17.02.2015}
+\subsection{$\delta$-функция Дирака}
+
+Дирак ввел эту функцию для описания плотностей (масс, зарядов и др.) в столь малом объеме, что его можно принять за точку.
+
+Исходя из того, что если $\delta(x)$ --- плотность распределения массы заряда $x = (x_1,x_2,x_3) \in \fieldr^3$.
+\begin{align*}
+	&\int \delta(x) \dd x = 1, \qquad \delta(x) = 0, \qquad x \ne 0; \\
+	&\integral{\fieldr^3}{\delta(x)}{x} = \lim_{\epsilon \to 0} \integral{{\abs{x}>\epsilon}}{\delta(x)}{x}.
+\end{align*}
+Пусть $f(x)$ --- непрерывная в окрестности 0 функция. Рассмотрим
+\begin{align*}
+	&\delta_{\epsilon}(x) = 
+		\begin{cases}
+			&\frac{1}{2\epsilon}, \qquad \abs{x} > \epsilon, \\
+			&0, \qquad \abs{x} \leq \epsilon;
+		\end{cases} \qquad x \in \fieldr; \\
+	&\integral{\fieldr}{\delta_{\epsilon}(x)f(x)}{x} = \lim_{\epsilon \to 0} \integral{{\abs{x}>\epsilon}}{\delta_{\epsilon}(x)}{x} = \lim_{\epsilon \to 0} \integral{{\abs{x}>\epsilon}}{\frac{1}{2\epsilon}f(x)}{x}.
+\end{align*}
+Поскольку $\delta$ --- неотрицательная функция, можно воспользоваться I-ой теоремой о среднем и вынести значение в некоторой средней точке за знак интеграла.
+$$
+	\lim_{\epsilon \to 0} \integral{{\abs{x}>\epsilon}}{\frac{1}{2\epsilon}f(x)}{x} = \lim_{\epsilon \to 0} {\frac{1}{2\epsilon} f(\xi_{\epsilon}) \integral{{-\epsilon}^{\epsilon}}{}{x}} = \lim_{\epsilon \to 0} f(\xi_{\epsilon}) = f(0);
+$$
+Т.о. $\delta$-функция Дирака оказалась функционалом, который на каждой, непрерывной в окрестности 0 функции действует по правилу. 
+
+Учитывая, что действие этого функционала прослеживается через предельный переход в интегральных операциях от $\delta$-образной последовательности, это действие записывается следующим образом
+$$
+	\scalar{\delta}{\phi} = \phi(0); \qquad \integral{\fieldr^n}{\delta(x)\phi(x)}{x} = \phi(0).
+$$
+
+\begin{task}
+	Привести примеры $\delta$-образных последовательностей в $\fieldr^2, \fieldr^3$. При этом использовать не только функции с разрывом 1-го рода, но и бесконечно дифференцируемые.
+\end{task}
+
+\begin{solution}
+	Comming soon.
+\end{solution}
+
+
+\subsection{Пространство основных функций $D$}
+
+
+$D = D(\fieldr^n)$ --- функции, имеющие конечный носитель в $\fieldr^n$, бесконечно дифференцируемые. В этом множестве вводится топология следующим образом. Последовательность функций $\phi_k \to \phi$ входит в $D$, если:
+\begin{enumerate}
+	\item $\exists R, \, \supp \phi_k \subset B_R$.
+	\item $\alpha = (\alpha_1, \dots, \alpha_n)$ - мультииндекс. $D^{\alpha}\phi_k \rightrightarrows D^{\alpha}\phi$ в $B_R$. $D^{\alpha} = \frac{ \partial^{\abs{\alpha}} }{\partial x_1^{\alpha_1} \dots \, \partial x_n^{\alpha_n}}$, где $\abs{\alpha} = \sum\limits_{i=1}^n \alpha_i, \,\alpha_i \in \mathbb{Z}^+$.
+\end{enumerate}
+
+
+\begin{task}
+	Доказать, что дифференциальные операторы непрерывны в топологии $D$.
+\end{task}
+
+
+\begin{solution}
+
+	Comming soon.
+\end{solution}
+
+
+\begin{task}
+	Доказать, что линейная замена переменных $y = Ax+b$ ($A$ --- невырожденная матрица и $b \in \fieldr^n$) --- непрерывная операция в топологии $D$.
+\end{task}
+
+
+\begin{solution}
+
+	Comming soon.
+\end{solution}
+
+
+\begin{task}
+	Доказать, что операция умножения на бесконечно дифференцируемую функцию непрерывна в $D$.
+\end{task}
+
+
+\begin{solution}
+
+	Comming soon.
+\end{solution}
