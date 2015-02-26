@@ -1,0 +1,29 @@
+\section{24.02.2015}
+\subsection{Приведение уравнения Бесселя к самосопряженному виду}
+Рассмотрим \emph{уравнение Бесселя}, имеющее вид
+\[ x^2 y'' + xy' + (x^2 - p^2)y = 0. \]
+
+Подставляя коэффициенты уравнения в выражение \ref{eq:rho_self_adjoint}, получаем
+\[ \rho(x) = \frac{1}{x^2} e^{\integral{}{}{\frac{1}{x}}{x}} = \frac{1}{x}. \]
+
+Тогда поделим уравнение Бесселя на $x$:
+\[ xy'' + y' + \left(x - \frac{p^2}{x}\right) y = 0, \]
+или иначе
+\[ (xy')' + \left(x - \frac{p^2}{x}\right) y = 0. \]
+Это \emph{уравнение Бесселя в самосопряженной форме}.
+
+Расмотрим \emph{сингулярный оператор Бесселя}:
+\[B_\gamma = \frac{1}{x^\gamma} \fulld{x}{\left[x^\gamma \fulld{x}\right]}, \quad \gamma > 0. \]
+
+Такой оператор является самосопряженным в пространстве $L_\gamma^2(\Omega)$ --- квадратично-суммируемых с весом $\gamma$ функций:
+\[ L_\gamma^2 = \set{f \colon \Omega \to \fieldr}{\integral{\Omega}{}{\absv{f(x)}^2 x^\gamma}{x} < \infty}, \]
+скалярное произведение в котором определяется равенством
+\[ \scalar{u}{v}_\gamma = \integral{\Omega}{}{u(x)v(x) x^\gamma}{x}. \]
+
+В самом деле, пусть $u, v \in C_0^2(\Omega)$ --- дважды непрерывно дифференцируемые функции с конечным носителем. Тогда
+\begin{equation*}
+\begin{split}
+    \scalar{B_\gamma u}{v}_\gamma &= \integral{}{}{\frac{1}{x^\gamma} \fulld{x}\left[x^\gamma \frac{\mathrm{d}u}{\mathrm{d}x}\right] v(x) x^\gamma}{x} = -\integral{}{}{x^\gamma \frac{\mathrm{d}u}{\mathrm{d}x} \frac{\mathrm{d}v}{\mathrm{d}x}}{x} \\
+    &= \integral{}{}{\frac{1}{x^\gamma} \fulld{x}\left[x^\gamma \frac{\mathrm{d}v}{\mathrm{d}x}\right] u(x) x^\gamma}{x} = \scalar{u}{B_\gamma v}_\gamma.
+\end{split}
+\end{equation*}
