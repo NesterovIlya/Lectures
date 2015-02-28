@@ -27,3 +27,89 @@
     &= \integral{}{}{\frac{1}{x^\gamma} \fulld{x}\left[x^\gamma \frac{\mathrm{d}v}{\mathrm{d}x}\right] u(x) x^\gamma}{x} = \scalar{u}{B_\gamma v}_\gamma.
 \end{split}
 \end{equation*}
+
+\subsection{Собственные числа и собственные функции задачи Штурма-Лиувилля}
+Рассмотрим уравнение Штурма-Лиувилля
+\begin{equation}\label{eq:sturm_liouville}
+    [\phi(x)y']' - q(x) y + \lambda \rho(x) y = 0
+\end{equation}
+с граничными условиями вида
+\begin{equation}\label{eq:s_l_boundary}
+\left\{
+\begin{aligned}
+    \alpha_1 y(a) + \alpha_2 y'(a) &= 0, \\
+    \beta_1 y(b) + \beta_2 y'(b) &= 0,
+\end{aligned}
+\right.
+\end{equation}
+где $\absv{\alpha_1} + \absv{\alpha_2} \neq 0$ и $\absv{\alpha_1} + \absv{\alpha_2} \neq 0$, а функции $\phi$ и $\rho$ положительны на отрезке $[a, b]$.
+
+Уравнение \eqref{eq:sturm_liouville} вместе с граничными условиями \eqref{eq:s_l_boundary} называются \emph{задачей Штурма-Лиувилля} (Ш.-Л.).
+
+Значения $\lambda \in \fieldr$, для которых задача Ш.-Л. имеет ненулевое решение, называются \emph{собственными числами задачи Ш.-Л.} Сами же ненулевые решения --- \emph{собственными функциями задачи Ш.-Л., соответствующими собственному числу $\lambda$}.
+
+\begin{theorem}
+    Пусть $u_1$ и $u_2$ --- собственные функции, соответствующие собственному числу $\lambda$. Тогда они линейно зависимы, т. е. $u_1 = c u_2$, $c \neq 0$.
+\end{theorem}
+
+\begin{proof}
+    Предположим противное: пусть $u_1$ и $u_2$ линейно независимы. Тогда, поскольку они оба удовлетворяют ЛДУ II порядка, их определитель Вронского не обращается в нуль ни в одной точке (см. курс ОДУ):
+    \[
+        W(u_1(x), u_2(x)) = \begin{vmatrix}
+            u_1(x) & u_2(x) \\
+            u_1'(x) & u_2'(x)
+        \end{vmatrix} \neq 0.
+    \]
+    Но в точке $x = a$, в соответствии с условиями \eqref{eq:s_l_boundary} получаем
+    \[ \left\{
+        \begin{aligned}
+            \alpha_1 u_1(a) + \alpha_2 u_1'(a) &= 0, \\
+            \alpha_1 u_2(a) + \alpha_2 u_2'(a) &= 0. \\
+        \end{aligned}
+        \right.
+    \]
+    Поскольку $\alpha_1$ и $\alpha_2$ одновременно не обращаются в нуль, получаем, что система имеет ненулевое решение относительно переменных $\alpha_1$ и $\alpha_2$, а значит её определитель равен нулю:
+    \[
+        \begin{vmatrix}
+            u_1(a) & u_2(a) \\
+            u_1'(a) & u_2'(a)
+        \end{vmatrix} = 0.
+    \]
+    Получили противоречие.
+\end{proof}
+
+\begin{definition}
+    Функции $u$ и $v$ называются \emph{ортогональными с весом $\rho$} на отрезке $[a, b]$, если
+    \[ \integral{a}{b}{u(x) v(x) \rho(x)}{x} = 0. \]
+\end{definition}
+
+\begin{theorem}
+    Пусть $u_1$ и $u_2$ --- собственные функции задачи Ш.-Л. (\ref{eq:sturm_liouville}, \ref{eq:s_l_boundary}), отвечающие различным собственным числам $\lambda_1$ и $\lambda_2$ соответственно. Тогда они ортогональны с весом $\rho$ на отрезке $[a, b]$.
+\end{theorem}
+
+\begin{proof}
+    Поскольку $u_1$ и $u_2$ решения, имеем:
+    \begin{align*}
+        [\phi u_1']' - q u_1 + \lambda_1 \rho(x) u_1 &= 0, \\
+        [\phi u_2']' - q u_2 + \lambda_2 \rho(x) u_2 &= 0.
+    \end{align*}
+    Домножим первое уравнение на $u_2$, а второе на $u_1$:
+    \begin{align*}
+        u_2 [\phi u_1']' - q u_1 u_2 + \lambda_1 \rho(x) u_1 u_2 &= 0, \\
+        u_1 [\phi u_2']' - q u_1 u_2 + \lambda_2 \rho(x) u_1 u_2 &= 0.
+    \end{align*}
+    Вычитая первое из второго, получаем:
+    \[ u_1 [\phi u_2']' - u_2 [\phi u_1']' = (\lambda_1 - \lambda_2) u_1 u_2 \rho(x). \]
+    Левая часть этого равенства преобразуется к виду
+    \[ u_1 [\phi u_2']' - u_2 [\phi u_1']' = [\phi (u_1 u_2' - u_2 u_1')]' = [\phi W(u_1(x), u_2(x))]', \]
+    (это проверяется непосредственно). Тогда
+    \[ (\lambda_1 - \lambda_2) u_1 u_2 \rho(x) = [\phi W(u_1(x), u_2(x))]'. \]
+    Проинтегрируем обе части равенства по отрезку $[a, b]$ и используем формулу Ньютона-Лейбница:
+    \begin{align*}
+        (\lambda_1 &- \lambda_2) \integral{a}{b}{u_1(x) u_2(x) \rho(x)}{x} =
+        \integral{a}{b}{[\phi W(u_1(x), u_2(x))]'}{x} = \\ &=
+        \substitute{\phi W(u_1(x), u_2(x))}{a}{b} = \phi(b) W(u_1(b), u_2(b)) -
+        \phi(a) W(u_1(a), u_2(a)) = 0,
+    \end{align*}
+    где $W(u_1(a), u_2(a)) = W(u_1(b), u_2(b)) = 0$ в силу граничных условий \eqref{eq:s_l_boundary} (аналогично предыдущей теореме).
+\end{proof}

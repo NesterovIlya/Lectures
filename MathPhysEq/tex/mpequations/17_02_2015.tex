@@ -12,7 +12,7 @@ $$
 Будем рассматривать случай, когда $c(x) = c, d(x) = d$ --- константы. Найдем решение полученного уравнения. Для этого запишем характеристическое уравнение, затем выпишем общее решение.
 \begin{align*}
 	&k^2 + c k + d = 0; \\
-	&y_{c}(x) = 
+	&y_{c}(x) =
 	\begin{cases}
 		&C_1 e^{k_1 x} + C_2 e^{k_2 x}, k = k_1 \ne k_2; \\
 		&C_1 e^{k x} + C_2 x e^{k x}, k = k_1 = k_2; \\
@@ -46,7 +46,7 @@ $$
 
 \subsection{Понятие сопряженного дифференциального уравнения в $L^2(\Omega)$}
 Пусть $\Omega = \set{x \in \fieldr }{a < x < b}$.
-Будем рассматривать пространство 
+Будем рассматривать пространство
 $$
 L^2(\Omega) = \set{f}{(L)\integral{\Omega}{}{\abs{f(x)}^2}{x} < \infty, \, x \in \Omega, \, f \colon \Omega \to \fieldr}.
 $$
@@ -56,13 +56,11 @@ $$
     &\norm{u}_{L^2} = \sqrt{\scalar{u}{u}} = \left( \integral{\Omega}{}{\abs{u(x)}^2}{x} \right)^{\frac{1}{2}}.
 \end{align*}
 Положим $H \subseteq L^2(\Omega)$. Задан оператор $A \colon H \to H$. $A^*$ --- сопряженный к~$A$ в~$H$, т.е. $\scalar{Au}{v} = \scalar{u}{A^*v}$. Возьмем $A = \fulld{x}$ и проверим, является ли он самосопряженным. Будем предполагать, что функции $u$ и/или $v$ имеют конечный носитель в $\Omega$.
-\begin{equation*}
-	\begin{split}
-        \scalar{\fulld{x}u}{v} &= \integral{\Omega}{}{\fulld{x}u(x) v(x)}{x} =
-        \underbrace{\substitute{u(x)v(x)}{a}{b}}_0 - \integral{a}{b}{u(x) v'(x)}{x} = \\
-        &= - \integral{a}{b}{u(x) \fulld{x}v(x)}{x} = \scalar{u}{-\fulld{x}v}.
-	\end{split}
-\end{equation*}
+\begin{align*}
+    \scalar{\fulld{x}u}{v} &= \integral{\Omega}{}{\fulld{x}u(x) v(x)}{x} =
+    \underbrace{\substitute{u(x)v(x)}{a}{b}}_0 - \integral{a}{b}{u(x) v'(x)}{x} = \\
+    &= - \integral{a}{b}{u(x) \fulld{x}v(x)}{x} = \scalar{u}{-\fulld{x}v}.
+\end{align*}
 Таким образом получаем, что $A^* = -\fulld{x} \ne A$.
 \begin{remark}
 	Оператор $\frac{\mathrm{d}^2}{{\mathrm{d}x}^2}$ --- является самосопряженным оператором в $L^2(\Omega)$ при условии, что функция и её производная имеет конечный носитель на множестве интегрирования. Другой пример самосопряженного оператора --- умножение на бесконечно непрерывно-дифференцируемую функцию.
@@ -73,15 +71,13 @@ $$
 	L = \fulld{x}\left[ \phi(x)\fulld{x} \right].
 $$
 Проверим, является ли он самосопряженным в $L^2(\Omega)$ (при условии, сказанном в замечании):
-\begin{equation*}
-	\begin{split}
-        \scalar{Lu}{v} &= \integral{\Omega}{}{\fulld{x}\left[ \phi(x)\fulld{x}u(x) \right] v(x)}{x} = \\
-        &= \underbrace{\substitute{v(x)\phi(x)\fulld{x}u(x)}{a}{b}}_0 -
-        \integral{a}{b}{\phi(x)\fulld{x}u(x) v'(x)}{x} = \\
-	&= - \underbrace{\substitute{u(x)\phi(x)\fulld{x}v(x)}{a}{b}}_0 +
-    \integral{a}{b}{u(x) \fulld{x}  \left[ \phi(x) \fulld{x}v(x) \right] }{x} = \scalar{u}{Lv}.
-	\end{split}
-\end{equation*}
+\begin{align*}
+    \scalar{Lu}{v} &= \integral{\Omega}{}{\fulld{x}\left[ \phi(x)\fulld{x}u(x) \right] v(x)}{x} = \\
+    &= \underbrace{\substitute{v(x)\phi(x)\fulld{x}u(x)}{a}{b}}_0 -
+    \integral{a}{b}{\phi(x)\fulld{x}u(x) v'(x)}{x} = \\
+&= - \underbrace{\substitute{u(x)\phi(x)\fulld{x}v(x)}{a}{b}}_0 +
+\integral{a}{b}{u(x) \fulld{x}  \left[ \phi(x) \fulld{x}v(x) \right] }{x} = \scalar{u}{Lv}.
+\end{align*}
 Получаем, что $L$ --- самосопряженный оператор. В $L^2(\Omega)$ это общий вид самосопряженного оператора. Отвечающее ему уравнение записывается в виде
 $$
 	\fulld{x}\left[ \phi(x)\fulld{x}y \right] - q(x)y = 0.
