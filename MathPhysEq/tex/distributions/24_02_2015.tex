@@ -1,0 +1,40 @@
+\section{24.02.2015}
+\subsection{Пример основной функции}
+Рассмотрим семейство функций вида
+\[ \omega_\epsilon(x) =
+    \left\{\begin{aligned}
+        c_{n,\epsilon} e^{-\frac{\epsilon^2}{\epsilon^2 - \absv{x}^2}}, \quad &\absv{x} \leq \epsilon,\\
+        0, \quad &\absv{x} > \epsilon,
+    \end{aligned}\right.
+\]
+где $c_{n,\epsilon}$ выбираются таким образом, чтобы $\integral{\fieldr^n}{}{\omega_\epsilon(x)}{x} = 1$.
+
+\begin{task}
+    Доказать, что $\omega_\epsilon$ --- бесконечно непрерывно дифференцируема.
+\end{task}
+
+\begin{solution}
+    Comming soon.
+\end{solution}
+
+Элемент объема $\dd x$ можно представить в сферических координатах в виде
+\[ \dd x = r^{n-1} \dd r \dd S, \]
+где $\dd S$ --- элемент $n-1$-мерной единичной сферы, при этом
+\[ \integral{\absv{x} = 1}{}{}{S} = \frac{2 \pi^{n/2}}{\Gamma(n/2)}. \]
+Тогда для любой функции $f(\absv{x})$ справедливо равенство
+\[ \integral{\absv{x} \leq R}{}{f(\absv{x})}{x} = \integral{0}{R}{f(r)r^{n-1}}{r} \integral{\absv{x} = 1}{}{}{S}. \]
+Отсюда легко получить условия нормировки для параметров $c_{n,\epsilon}$.
+
+\subsection{Основная функция, равная 1 на области}
+\begin{lemma}
+    Для любой области $\Omega \subset \fieldr^n$ найдётся такая бесконечно непрерывно дифференцируемая функция $\eta$, что выполняются следующие три условия:
+    \begin{enumerate}
+        \item $0 \leq \eta(x) \leq 1$,
+        \item $\eta(x) = 1$ для всех $x \in \Omega_\epsilon$, где $\Omega_\epsilon$ --- $\epsilon$-окрестность области $\Omega$,
+        \item $\eta(x) = 0$ для всех $x$ не принадлежащих $3\epsilon$-окрестности области $\Omega$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    См. Владимиров-Жаринов (2004), с. 69.
+\end{proof}
