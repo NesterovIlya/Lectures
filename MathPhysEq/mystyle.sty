@@ -24,18 +24,16 @@
 \hypersetup{
     pdftitle={Конспект лекций по уравнениям математической физики},
     pdfauthor={Ляхов Л. Н.},
-    bookmarksnumbered=true,     
-    bookmarksopen=true,         
-    bookmarksopenlevel=3,       
-    colorlinks=true,       
-    allcolors=blue,     
-    pdfstartview=Fit,           
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    bookmarksopenlevel=3,
+    colorlinks=true,
+    allcolors=blue,
+    pdfstartview=Fit,
     pdfpagemode=UseOutlines,    % this is the option you were lookin for
     pdfpagelayout=TwoPageRight
 }
 \usepackage{hypcap}
-
-\allowdisplaybreaks
 
 %\setlength{\oddsidemargin}{5mm}
 %\setlength{\evensidemargin}{5mm}
@@ -43,7 +41,7 @@
 \pagestyle{fancy}
 %\fancyheadoffset[LE,RO]{\marginparsep+\marginparwidth}
 \fancyheadoffset[LE,RO]{0.5cm}
-\renewcommand{\sectionmark}[1]{\markright{\S\thesection. #1}}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
 \fancyhf{}
 \fancyhead[LE,RO]{\thepage}
 \fancyhead[LO]{\rightmark}
@@ -60,9 +58,6 @@
 \linespread{0.95}
 
 \numberwithin{equation}{section}
-
-%\titleformat{\section}{\large\bfseries}{\S\thesection.}{.5em}{}
-%\titleformat{\subsection}{\large\bfseries}{\thesubsection.}{.3em}{}
 
 % Convenient macros
 \renewcommand{\phi}{\varphi}
@@ -111,7 +106,9 @@
 \relpenalty=9999
 \binoppenalty=9999
 
-\titleformat{\section}[block]{\Large\normalfont\bfseries\center}{\S\thesection. }{0em}{}
-\titleformat{\subsection}[block]{\large\normalfont\bfseries\center}{\thesubsection. }{0em}{}
+\titleformat{\section}[block]{\Large\normalfont\bfseries\center}{}{0em}{}
+\titleformat{\subsection}[block]{\large\normalfont\bfseries\center}{}{0em}{}
 
-%\allowdisplaybreaks
+\renewcommand{\thesection}{\thepart .\arabic{section}}
+
+\setcounter{secnumdepth}{1}

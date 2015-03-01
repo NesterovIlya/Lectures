@@ -107,9 +107,13 @@
     Проинтегрируем обе части равенства по отрезку $[a, b]$ и используем формулу Ньютона-Лейбница:
     \begin{align*}
         (\lambda_1 &- \lambda_2) \integral{a}{b}{u_1(x) u_2(x) \rho(x)}{x} =
-        \integral{a}{b}{[\phi W(u_1(x), u_2(x))]'}{x} = \\ &=
-        \substitute{\phi W(u_1(x), u_2(x))}{a}{b} = \phi(b) W(u_1(b), u_2(b)) -
+        \integral{a}{b}{[\phi(x) W(u_1(x), u_2(x))]'}{x} = \\ &=
+        \substitute{\phi(x) W(u_1(x), u_2(x))}{a}{b} = \phi(b) W(u_1(b), u_2(b)) -
         \phi(a) W(u_1(a), u_2(a)) = 0,
     \end{align*}
     где $W(u_1(a), u_2(a)) = W(u_1(b), u_2(b)) = 0$ в силу граничных условий \eqref{eq:s_l_boundary} (аналогично предыдущей теореме).
 \end{proof}
+
+\subsection{Основные уравнения математической физики}
+\subsubsection{Волновое уравнение}
+TODO
