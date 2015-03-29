@@ -1,0 +1,174 @@
+\section{10.03.2015}
+\subsection{Постановка граничных задач для колебания струны(стержня)}
+
+Будем рассматривать неоднородное волновое уравнение колебаний струны
+\begin{equation}\label{eq:inhom_wave}
+	u_{tt}'' = a^2 u_{xx}'' + f(x,t)
+\end{equation}
+с начальными условиями
+\begin{equation}\label{eq:inhom_wave_init_cond}
+	\left\{
+        \begin{aligned}
+			u(x,0) &= \phi_1(x), \\
+			u_t'(x,0) &= \phi_2(x);
+		\end{aligned}
+    \right.
+\end{equation}
+где $f(x,t)$ -- функция внешнего воздействия, $u(x,0)$ -- положение точек струны в~начальный момент времени, 
+$u_t'(x,0)$ -- начальные скорости точек струны.
+
+Граничные условия могут быть следующих видов:
+\begin{enumerate}
+	\item I рода:
+
+	\begin{equation}\label{eq:inhom_wave_bound_cond1}
+		u(0,t) = \psi_1(t), \qquad u(l,t) = \psi_2(t); 
+	\end{equation}
+	где $\psi_1(t)$ и $\psi_2(t)$ -- уравнения движения концов в~процессе колебаний.
+
+	\item II рода:
+
+	\begin{equation}\label{eq:inhom_wave_bound_cond2}
+		u_x'(0,t) = \nu_1(t), \qquad u_x'(l,t) = \nu_2(t), 
+	\end{equation}
+	Поскольку по \emph{закону Гука} натяжение пропорционально деформации, а деформация в~безразмерном виде представляется в~виде производной, то производная показывает
+	с~точностью до~некоторой константы внешнее усилие, которое подчиняется закону~$\nu_i(t)$.
+
+	\item III рода:
+
+	\begin{equation}\label{eq:inhom_wave_bound_cond3}
+		u_x'(l,t) - \alpha u(l,t) = \mu(t),
+	\end{equation}
+	где $\alpha$ -- жесткость закрепленного конца струны. Данное уравнение определяет условие упругого закрепления концов струны. Упругое закрепление
+	означает, что возникающее усилие вызывает обратную реакцию, которая пропорциональна смещению.
+\end{enumerate}
+
+\begin{task}
+	Каким будет условие свободных концов?
+\end{task}
+
+\begin{solution}
+	Comming soon.
+\end{solution}
+
+\begin{task}
+	Как записать условие жесткого крепления концов?
+\end{task}
+
+\begin{solution}
+	Comming soon.
+\end{solution}
+
+\subsection{Вывод уравнения теплопроводности}
+
+Пусть имеется произвольный объем $V \subset \fieldr^3$. Обозначим через $u(x,t)$ температуру в~каждой точке объема, $x = (x_1,x_2,x_3) \in V$.
+
+Вспомним следующие определения из курса математического анализа.
+\begin{definition}
+    Пусть функция $u$ дифференцируема в точке $\\(x_0,y_0,z_0)$. Тогда в~этой точке функция $u$ имеет \emph{производную по направлению} $l \in \fieldr^3$ и эта производная
+    находится по формуле
+    \begin{equation}\label{eq:direct_deriv}
+		\pd{u}{l} = \scalar{\nabla u}{\ort l},
+	\end{equation}
+	где $\nabla{u} = \left( \pd{u}{x_1},\pd{u}{x_2},\pd{u}{x_3} \right)$ -- градиент функции $u$, $\ort{l} = \frac{l}{\abs{l}}$ -- направляющие косинусы вектора направления.
+\end{definition} 
+
+Так как $\ort{l}$ -- единичный вектор, то $\abs{\ort{l}} = 1$, поэтому уравнение (\ref{eq:direct_deriv}) запишется в виде
+\[ \pd{u}{l} = \abs{\nabla{u}} \cos\phi, \]
+где $\phi$ -- угол, образованный вектором $l$ и $\nabla{u}$. Если в данной точке $\abs{\nabla{u}}^2 \ne 0$, то производная по~направлению достигает наибольшего значения в~единственном 
+направлении, а~именно том, при~котором $\cos\phi = 1$, т.е. в~направлении градиента.
+
+\begin{definition}
+	Пусть задано векторное поле $a = (a_x, a_y, a_z)$ в некоторой области $G$, дифференцируемое в некоторой точке.
+	Число $\\ \pd{a_x}{x} + \pd{a_y}{y} + \pd{a_z}{z} $ называется \emph{дивергенцией} поля в этой точке и обозначается через $\divg{a}$, т.е.
+	\[ \divg{a} = \pd{a_x}{x} + \pd{a_y}{y} + \pd{a_z}{z} = \nabla{a}. \]
+\end{definition}
+
+Вернемся к исходной задаче. Известно, что градиент температур некоторого объема создает тепловой поток. Обозначим через $S$ границу объема $V$, и пусть $\nu$ -- внешняя нормаль к~ней.
+Согласно закону Фурье через поверхность $S$ в~объем $V$ за~промежуток времени $(t,t+\Delta t)$ поступает количество тепла
+\begin{equation}\label{eq:dQ_across_bound1}
+	\Delta Q = - \iintegral{S}{}{ k \scalar{\nabla u}{\nu} }{S}\Delta t - \iiintegral{V}{}{ f(x,t) }{x}\Delta t,
+\end{equation}
+где $k$ -- коэффициент теплопроводности, $\dd S$ -- элемент поверхности, $f(x,t)$ -- плотность внутренних источников тепла.
+Воспользуемся формулой Гаусса-Остроградского и приведем (\ref{eq:dQ_across_bound1}) к виду
+\begin{equation}\label{eq:dQ_across_bound2}
+	\Delta Q = -\iiintegral{V}{}{ \Bigl[  \divg{(k \nabla u)} + f(x,t) \Bigr] }{x}\Delta t.
+\end{equation}
+Посмотрим с точки зрения эмпирической формулы Ньютона:
+\begin{equation}\label{eq:dQ_across_bound_newton}
+	\Delta Q = \gamma m \left( u(x,t+\Delta t) - u(x,t) \right) = - \iiintegral{V}{}{ \gamma \rho u_t'(x,t) }{x}\Delta t.
+\end{equation}
+Согласно закону сохранения количества тепла, значения (\ref{eq:dQ_across_bound2}) и (\ref{eq:dQ_across_bound_newton}) должны совпадать.
+$$
+	\iiintegral{V}{}{ \Bigl[ \gamma \rho u_t'(x,t) - \divg{(k \nabla u)} - f(x,t) \Bigr] }{x} = 0.
+$$
+Будем считать, что все производные в~этом выражении есть непрерывные функции, тогда ввиду произвольности области $V$ подинтегральная функция равна 0.
+Получаем 
+\begin{equation}\label{eq:heat1}
+	u_t'(x,t) = \frac{1}{\gamma\rho}\divg{(k \nabla u)} + \frac{1}{\gamma\rho}f(x,t).
+\end{equation}
+Если среда однородна, т.е $k,\rho,\gamma$ -- постоянные, то уравнение (\ref{eq:heat1}) принимает вид
+\begin{equation}\label{eq:heat2}
+	u_t'(x,t) = a^2 \Delta u + F, \qquad a^2 = \frac{k}{\gamma\rho}, \qquad \frac{f}{\gamma\rho},
+\end{equation}
+где $\Delta = \nabla^2$ -- оператор Лапласа.
+Уравнение (\ref{eq:heat2}) называется \emph{уравнением теплопроводности}.
+
+\subsection{Постановка краевых задач для уравнения теплопроводности}
+
+Рассмотрим возможные начальные и граничные условия для уравнения теплопроводности (\ref{eq:heat2}).
+
+Начальные условия:
+\begin{equation}\label{eq:heat_init_cond}
+	u(x,0) = \phi(x),
+\end{equation}
+где $\phi(x)$ -- температура точек тела в начальный момент времени.
+
+Граничные условия:
+\begin{enumerate}
+	\item (I рода) Если на границе $S$ поддерживается заданное распределение температуры $\psi_1(x,t)$, где $x \in S$, то
+	\begin{equation}\label{eq:heat_bound_cond1}
+		\left. u
+		\right|_S^{} = \psi_1(x,t);
+	\end{equation}
+
+	\item (II рода) Если на границе $S$ поддерживается заданный поток тепла $\psi_2(x,t)$, где $x \in S$, то
+	\begin{equation}\label{eq:heat_bound_cond2}
+		\left. -k\pd{u}{\nu}
+		\right|_S^{} = \psi_2(x,t);
+	\end{equation}
+
+	\item (III рода) Если на границе $S$ происходит теплообмен согласно закону Ньютона, то
+	\begin{equation}\label{eq:heat_bound_cond3}
+		\left. \Bigl[ k\pd{u}{\nu} + h(u-u_0) \Bigr]
+		\right|_S^{} = 0,
+	\end{equation}
+	где $h$ -- коэффициент теплообмена, $u_0$ -- температура окружающей среды
+\end{enumerate}
+
+Если в уравнении теплопроводности посчитать, что в~процессе теплообмена функция стабилизируется и становится независимой от времени, то получим уравнение
+\begin{equation}\label{eq:poisson}
+	a^2\Delta u + F = 0.
+\end{equation}
+Уравнение (\ref{eq:poisson}) называется \emph{уравнением Пуассона}, а при $F = 0$ \emph{уравнением Лапласа}.
+
+Основные краевые задачи:
+\begin{enumerate}
+	\item (I рода) Задача Дирихле.
+	\[  
+		\left. u
+		\right|_S^{} = \psi_1(x);
+	\]
+
+	\item (II рода) Задача Неймана.
+	\[  
+		\left. \pd{u}{\nu} = \psi_2(x)
+		\right|_S^{} = \psi_2(x);
+	\]
+
+	\item (III рода) 
+	\[  
+		\left. \Bigl[ k\pd{u}{\nu} + hu \Bigr]
+		\right|_S^{} = \psi_3(x,u,z);
+	\]
+\end{enumerate}
